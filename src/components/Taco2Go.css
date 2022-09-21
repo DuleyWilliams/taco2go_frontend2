@@ -1,0 +1,110 @@
+/* Import the google web fonts you want to use */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@300;400&display=swap');
+
+/*Typography
+--------------------------------------------------------------*/
+button,
+body,
+input,
+select,
+textarea {
+  color: #3371F2;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+h2 {
+font-size: 2rem;
+font-family: 'Raleway', sans-serif;
+}
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+  
+}
+
+p {
+  margin-bottom: 1.5em;
+  color: #d6fcff;
+  color: darkslateblue;
+}
+
+strong {
+  font-weight: bold;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+
+.button-btn {
+  align-items: center;
+}
+
+.section-btn{
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 3em;
+
+}
+
+.btn {
+  background-color: #ECF2FE;
+  border-style: solid;
+  border-color: #547FF3;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 7px;
+  margin: 0.1em;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_button{
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 3em;
+
+}
+
+.home--button{
+  background-color: #ECF2FE;
+  border-style: solid;
+  border-color: #547FF3;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 7px;
+  margin: 0.1em;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+img.brand-logos{
+  text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
