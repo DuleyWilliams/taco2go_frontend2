@@ -99,12 +99,3 @@ address {
   justify-content: center;
   align-items: center;
 }
-
-img.brand-logos{
-  text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 100%;
-}

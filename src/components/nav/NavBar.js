@@ -1,72 +1,40 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import "./NavBar.css";
+import React from "react"
+import { Link, useHistory } from "react-router-dom"
+import "./NavBar.css"
 
-export const NavBar = ({ clearUser, isAuthenticated }) => {
-  const history = useHistory();
 
-  const handleLogout = () => {
-    clearUser();
-    history("/");
-  };
-
+export const NavBar = () => {
+  const history = useHistory()
   return (
-    <ul className="navbar">
-      <li className="navbar__image">
-        <Link className="navbar__link" to="/"></Link>
-      </li>
-      <li className="navbar__item active">
-        <Link
-          className="navbar__link"
-          to="/"
-          style={{ textDecoration: "none" }}
-        >
-          Home
-        </Link>
-      </li>
-      {isAuthenticated ? (
-        <li className="navbar__item">
-          <Link
-            className="navbar__link"
-            to="/myCollection "
-            style={{ textDecoration: "none" }}
-          >
-            My Collection
-          </Link>
-        </li>
-      ) : null}
-      {isAuthenticated ? (
-        <li className="navbar__item">
-          <Link
-            className="navbar__link"
-            to="/myCollection/added"
-            style={{ textDecoration: "none" }}
-          >
-            Wish List
-          </Link>
-        </li>
-      ) : null}
-      {/* {isAuthenticated ? (
-        <li className="navbar__item">
-          <Link className="navbar__link" to="">
-            Kop Or Drop
-          </Link>
-        </li>
-      ) : null} */}
-      {isAuthenticated ? (
-        <li className="navbar__item">
-          <span className="navbar__link" onClick={handleLogout}>
-            {" "}
-            Logout{" "}
-          </span>
-        </li>
-      ) : (
-        <li className="navbar__item">
-          <Link className="navbar__link" to="/login">
-            Login
-          </Link>
-        </li>
-      )}
-    </ul>
-  );
-};
+      <ul className="navbar">
+          <li className="navbar__image"></li>
+          <li className="navbar__item">
+              <Link to="/mybuilttacos">Build A Taco</Link>
+          </li>
+          {/* <li className="navbar__item">
+          <Link to="/events">Events</Link>
+          </li>
+          <li className="navbar__item">
+              Navigation link
+          </li> */}
+          {
+              (localStorage.getItem("lu_token") !== null) ?
+                  <li className="nav-item">
+                      <button className="nav-link fakeLink"
+                          onClick={() => {
+                              localStorage.removeItem("lu_token")
+                              history.push({ pathname: "/" })
+                          }}
+                      >Logout</button>
+                  </li> :
+                  <>
+                      <li className="nav-item">
+                          <Link className="nav-link" to="/login">Login</Link>
+                      </li>
+                      <li className="nav-item">
+                          <Link className="nav-link" to="/register">Register</Link>
+                      </li>
+                  </>
+          }        </ul>
+  )
+}

@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./BuiltTaco.css";
 import { Link } from "react-router-dom";
-import { getAllMyBuiltTacos, addMyBuiltTaco } from "./BuiltTacoManager";
+import { getAllMyBuiltTacos, createMyBuiltTaco } from "./BuiltTacoManager";
 import { useHistory } from "react-router-dom";
 
 export const MyBuiltTacoCard = ({ taco, handleDeleteTaco}) => {
   const [myTacos, setMyTaco] = useState({
-    brand: taco.brand,
-    colorway: taco.colorway,
-    shoeId: taco.id,
-    img: taco.media.smallImageUrl,
+    tacoLoverId: taco.tacoLoverId_id,
+    protein: taco.tacoProteinId_id,
+    shell: taco.tacoShellId_id,
     name: taco.name,
-    title: taco.title,
-    year: taco.year,
   });
 
   const handleClickSaveTaco = (event) => {
     event.preventDefault(); //Prevents the browser from submitting the form
-    addMyBuiltTaco(myTacos).then(() => history("/mybuilttacos/added"));
+    createMyBuiltTaco(myTacos).then(() => history("/mybuilttacos/added"));
   };
 
   const history = useHistory();
@@ -28,11 +25,11 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco}) => {
     <div className="card">
       <div className="card-content">
         <section className="card-header"></section>
-        <section className="card-image">
+        {/* <section className="card-image">
           <img src={taco.media.imageUrl} alt="MyKickz" />
-        </section>
+        </section> */}
         <h2>
-          Brand: <span className="card-kickname">{taco.brand}</span>
+          Brand: <span className="card-kickname">{taco.tacoLoverId_id}</span>
         </h2>
         <p>Style: {taco.title}</p>
         <p>Colorway: {taco.colorway}</p> <p>year:{taco.year} </p>

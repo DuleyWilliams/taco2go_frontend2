@@ -1,26 +1,32 @@
-import React, {useState} from "react"
-import { NavBar } from "./nav/NavBar"
+import React from "react"
+import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "../ApplicationViews"
-import "./Taco2Go.css"
+import { NavBar } from "./nav/NavBar"
+import { Login } from "../auth/Login"
+import { Register } from "../auth/Register"
 
-export const Taco2Go = () => {
-   
-    const [isAuthenticated, setIsAuthenticated] = useState(sessionStorage.getItem("taco2go_customer") !== null)
-
-    const setAuthUser = (user) => {
-        sessionStorage.setItem("taco2go_customer", JSON.stringify(user))
-        setIsAuthenticated(sessionStorage.getItem("taco2go_customer") !== null)
-    }
-
-    const clearUser = () => {
-        sessionStorage.clear();
-        setIsAuthenticated(sessionStorage.getItem("taco2go_customer") !== null)
-      }
-   
-return (
+export const Taco2Go = () => (
     <>
-        <NavBar clearUser={clearUser} isAuthenticated={isAuthenticated}/>
-        <ApplicationViews setAuthUser={setAuthUser} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
+        <Route render={() => {
+            if (localStorage.getItem("lu_token")) {
+                return <>
+                    <Route>
+                        <NavBar />
+                        <ApplicationViews />
+                    </Route>
+                </>
+            } else {
+                return <Redirect to="/login" />
+            }
+        }} />
+
+        <Route path="/login">
+            <Login />
+        </Route>
+
+        <Route path="/register">
+            <Register />
+        </Route>
+
     </>
 )
-}
