@@ -4,27 +4,27 @@ import {
   getAllMyBuiltTacos,
   deleteMyBuiltTaco
 } from "./BuiltTacoManager";
-import { MyBuiltTacoCard } from "./CollectionCard";
-import { useNavigate } from "react-router-dom";
+import { MyBuiltTacoCard } from "./BuiltTacoCard";
+import { useHistory } from "react-router-dom";
 
 export const MyBuiltTacoList = () => {
-  const [shoes, setShoes] = useState([]);
+  const [tacos, setTacos] = useState([]);
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
-  const getShoes = () => {
-    return getAllShoes().then((shoesFromAPI) => {
-      setShoes(shoesFromAPI);
+  const getTacos = () => {
+    return getAllMyBuiltTacos().then((tacosFromAPI) => {
+      setTacos(tacosFromAPI);
       // We'll do something more interesting with this data soon.
     });
   };
 
   useEffect(() => {
-    getShoes();
+    getTacos();
   }, []);
 
-  const handleDeleteShoe = (id) => {
-    deleteShoe(id).then(() => getAllShoes().then(setShoes));
+  const handleDeleteTaco= (id) => {
+    deleteMyBuiltTaco(id).then(() => getAllMyBuiltTacos().then(setTacos));
   };
 
 
@@ -39,18 +39,18 @@ export const MyBuiltTacoList = () => {
           type="button"
           className="btn"
           onClick={() => {
-            navigate("/myCollection/find");
+            history("/myCollection/find");
           }}
         >
           Find
         </button>
       </section>
       <div className="container-cards">
-        {shoes.map((shoe) => (
-          <CollectionCard
-            key={shoe.id}
-            collection={shoe}
-            handleDeleteShoe={handleDeleteShoe}
+        {tacos.map((taco) => (
+          <MyBuiltTacoCard 
+            key={taco.id}
+            collection={taco}
+            handleDeleteTaco={handleDeleteTaco}
           />
         ))}
       </div>

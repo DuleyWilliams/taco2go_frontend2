@@ -1,51 +1,52 @@
 const remoteURL = "http://localhost:8000"
 
-export const getMyBuiltTacoById = (myBuiltTacosId) => {
-  return fetch(`${remoteURL}/[mybuilttacos]/${myBuiltTacosId}`, {
-    headers:{
-        "Authorization": `Token ${localStorage.getItem("token")}`
-        }
-    })
-    .then(res => res.json())
-}
-
 export const getAllMyBuiltTacos = () => {
-  return fetch(`${remoteURL}/mybuilttacos`, {
-    headers:{
-        "Authorization": `Token ${localStorage.getItem("token")}`
+    return fetch("http://localhost:8000/mybuilttacos", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }
     })
-    .then(res => res.json())
+        .then(response => response.json())
 }
 
-
-export const deleteMyBuiltTaco= (id) => {
-    return fetch(`${remoteURL}/mybuilttacos/${id}`, {
-        method: "DELETE",
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("token")}`,
-        } 
-    })
-}
-
-  export const addMyBuiltTaco= (newMyBuiltTaco) => {
-    return fetch(`${remoteURL}/mybuilttacos`, {
-        method: 'POST',
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("token")}`,
+export const createMyBuiltTaco= (createMyBuiltTaco) => {
+    return fetch(`${remoteURL}/mybuilttacos`, { 
+        method: "POST",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(newMyBuiltTaco)
-    })
-    .then(res => res.json())
+        body: JSON.stringify(createMyBuiltTaco)
+    }).then(response => response.json())
 }
 
-  export const updateMyBuiltTaco= (editedMyBuiltTaco) => {
-    return fetch(`${remoteURL}/mybuilttacos/${editedMyBuiltTaco.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(editedMyBuiltTaco),
-    }).then((data) => data.json());
-  };
+export const updateMyBuiltTaco = (editMyBuiltTaco, id) => {
+    console.log('updatedMyBuiltTaco', editMyBuiltTaco)
+    return fetch(`${remoteURL}/mybuilttacos/${id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editMyBuiltTaco)
+    })
+}
+
+export const deleteMyBuiltTaco = (id) => {
+    return fetch(`${remoteURL}/mybuilttacos/${id}`, { 
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        },
+        body: JSON.stringify(id)
+    })
+}
+
+export const getMyBuiltTacoById = (myBuiltTacosId) => {
+    return fetch(`${remoteURL}/mybuilttacos/${myBuiltTacosId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+        } 
+    })
+        .then(response => response.json())
+}

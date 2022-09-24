@@ -1,90 +1,44 @@
 import React from "react"
-import { BrowserRouter as Router } from "react-router-dom";
-import { Switch, Route, Routes, useHistory } from "react-router-dom";
-import { Home } from "./Home"
+import { Route} from "react-router-dom";
+import { Taco2Go } from "./components/Taco2Go"
 import { MyBuiltTacoCard } from './components/builtTaco/BuiltTacoCard';
-import { Login } from "./auth/Login";
-import { Register } from "./auth/Register";
+import { MyBuiltTacoList } from './components/builtTaco/BuiltTacoList';
 
 
-export const ApplicationViews = ({ isAuthenticated, setIsAuthenticated }) => {
-    const PrivateRoute = ({ children }) => {
-      return isAuthenticated ? children : <useHistory to="/login" />;
-    };
+export const ApplicationViews = () => {
   
-    const setAuthUser = (user) => {
-      sessionStorage.setItem("kickz2Kop_customer", JSON.stringify(user));
-      setIsAuthenticated(sessionStorage.getItem("kickz2Kop_customer") !== null);
-    };
-
-    return (
-        <>
-          <Router>
-            <Switch>
-                <Route path="/" element={<Home />} />
-        
-                {/* <Route
-                exact
-                path="/mybuilttacos/"
-                element={
-                    <PrivateRoute>
-                    <CollectionList />
-                    </PrivateRoute>
-                }
-                />
-        
-                <Route
-                exact
-                path="/mybuilttacos/added"
-                element={
-                    <PrivateRoute>
-                    <TacoAddedList />
-                    </PrivateRoute>
-                }
-                />
-        
-                <Route
-                exact
-                path="/mybuilttacos/extra/:tacoId"
-                element={
-                    <PrivateRoute>
-                    <TacoEditForm />
-                    </PrivateRoute>
-                }
-                />
-        
-                <Route path="/myCollection/view" element={<CollectionView />} />
-        
-                <Route
-                exact
-                path="/myCollection/find"
-                element={
-                    <PrivateRoute>
-                    <FindShoeList />
-                    </PrivateRoute>
-                }
-                /> */}
-        
-                <Route
-                exact
-                path="/login"
-                element={<Login setAuthUser={setAuthUser} />}
-                />
-                <Route exact path="/register" element={<Register />} />
-            </Switch>
-            </Router> 
-        </>
-      );
-    };
-
-// return (
-//     <>
-//           <Router> 
-//             <Switch>
-//                 <Route exact path="/" element={<Home />} />
-
-//                 <Route path="/buildataco" element={<MyBuiltTacoCard />} />
-//             </Switch>
-//            </Router> 
-//     </>
-// )
+  return <>
+        <main style={{
+            margin: "5rem 2rem",
+            lineHeight: "1.75rem"
+        }}>
+            <Route exact path={["/"]}>
+                <Taco2Go/>
+            </Route>
+            <Route exact path="/mybuilttacos">
+                <MyBuiltTacoCard  />
+            </Route>
+            <Route exact path="/mybuilttaco">
+                <MyBuiltTacoList />
+            </Route>
+            {/* <Route exact path="/games/:gameId/update">
+                <UpdateGameForm />
+            </Route>
+            <Route exact path="/games/:gameId(\d+)">
+                <GameDetails /> 
+            </Route>  
+            <Route exact path="/events">
+                <EventList />
+            </Route>
+            <Route exact path="/events/new">
+                <EventForm />
+            </Route>
+            <Route exact path="/events/:eventId/update">
+                <UpdateEventForm />
+            </Route>
+            <Route exact path="/events/:eventId(\d+)">
+                <EventDetails />
+            </Route> */}
+        </main>
+    </>
+}
