@@ -9,14 +9,14 @@ export const Login = () => {
   const invalidDialog = useRef();
   const history = useHistory();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     return fetch("http://127.0.0.1:8000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "application/json"
       },
       body: JSON.stringify({
         username: username.current.value,
@@ -25,7 +25,7 @@ export const Login = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if ("valid" in res && res.valid && "token" in res) {
+        if ("valid" in res && res.valid && "lu_token" in res) {
           localStorage.setItem("lu_token", res.token);
           history.push("/");
         } else {
@@ -50,13 +50,13 @@ export const Login = () => {
           <h1>🌮Taco2️⃣Go🌮</h1>
           <h2>Please sign in</h2>
           <fieldset>
-            <label htmlFor="inputUsername"> Username address </label>
+            <label htmlFor="inputUsername"> Username </label>
             <input
               ref={username}
               type="username"
               id="username"
               className="form-control"
-              placeholder="Username address"
+              placeholder="Username"
               required
               autoFocus
             />

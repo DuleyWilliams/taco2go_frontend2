@@ -91,16 +91,16 @@ code {
 
 /* Button 1 */
 .btn-1 {
-	background: #3498db;
+	background: #510c32;
 	color: #fff;
 }
 
 .btn-1:hover {
-	background: #2980b9;
+	background: #721146;
 }
 
 .btn-1:active {
-	background: #2980b9;
+	background: #721146;
 	top: 2px;
 }
 
@@ -116,16 +116,16 @@ code {
 
 /* Button 2 */
 .btn-2 {
-	background: #2ecc71;
+	background: #1b7842;
 	color: #fff;
 }
 
 .btn-2:hover {
-	background: #27ae60;
+	background: #61a134;
 }
 
 .btn-2:active {
-	background: #27ae60;
+	background: #61a134;
 	top: 2px;
 }
 
@@ -141,16 +141,16 @@ code {
 
 /* Button 3 */
 .btn-3 {
-	background: #e74c3c;
+	background: #c72e36;
 	color: #fff;
 }
 
 .btn-3:hover {
-	background: #c0392b;
+	background: #c8444b;
 }
 
 .btn-3:active {
-	background: #c0392b;
+	background: #c8444b;
 	top: 2px;
 }
 

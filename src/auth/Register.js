@@ -24,10 +24,10 @@ export const Register = () => {
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
                 "email": email.current.value,
-                "user_city":userCity.current.value,
-                "user_state":userState.current.value,
+                "userCity": userCity.current.value,
+                "userState": userState.current.value,
                 "password": password.current.value,
-                "profilePic":profilePic.current.value
+                "profilePic": profilePic.current.value
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -85,16 +85,16 @@ export const Register = () => {
                     <textarea ref={email} name="email" className="form-control" placeholder="Email" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="user_city"> City</label>
+                    <label htmlFor="userCity"> City</label>
                     <textarea ref={userCity} name="userCity" className="form-control" placeholder="City" required />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="user_state"> State</label>
+                    <label htmlFor="userState"> State</label>
                     <textarea ref={userState} name="userState" className="form-control" placeholder="State" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="profilePic"> Picture URL </label>
-                    <textarea ref={profilePic} name="profilePic" className="form-control" placeholder="URL" />
+                    <textarea ref={profilePic} name="profilePic" type="URL" className="form-control" placeholder="URL" />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
