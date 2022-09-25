@@ -61,14 +61,6 @@ export const Register = () => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
                 <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
-                <fieldset>
                     <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
@@ -81,20 +73,28 @@ export const Register = () => {
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset>
+                    <label htmlFor="firstName"> First Name </label>
+                    <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="lastName"> Last Name </label>
+                    <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
+                </fieldset>
+                <fieldset>
                     <label htmlFor="email"> Email</label>
-                    <textarea ref={email} name="email" className="form-control" placeholder="Email" required />
+                    <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="userCity"> City</label>
-                    <textarea ref={userCity} name="userCity" className="form-control" placeholder="City" required />
+                    <input ref={userCity} type="text" name="userCity" className="form-control" placeholder="City" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="userState"> State</label>
-                    <textarea ref={userState} name="userState" className="form-control" placeholder="State" required />
+                    <input ref={userState} type="text" name="userState" className="form-control" placeholder="State Format - NY" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="profilePic"> Picture URL </label>
-                    <textarea ref={profilePic} name="profilePic" type="URL" className="form-control" placeholder="URL" />
+                    <input ref={profilePic} type="text" name="profilePic" type="URL" className="form-control" placeholder="URL" />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"

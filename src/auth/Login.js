@@ -25,7 +25,7 @@ export const Login = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if ("valid" in res && res.valid && "lu_token" in res) {
+        if ("valid" in res && res.valid && "token" in res) {
           localStorage.setItem("lu_token", res.token);
           history.push("/");
         } else {
@@ -47,7 +47,8 @@ export const Login = () => {
       </dialog>
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>🌮Taco2️⃣Go🌮</h1>
+          {/* <h1>🌮Taco2️⃣Go🌮</h1> */}
+          <img className="logoName" src="http://localhost:3000/images/Taco2Go_logo.svg"></img>
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputUsername"> Username </label>

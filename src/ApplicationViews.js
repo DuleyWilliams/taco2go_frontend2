@@ -1,6 +1,5 @@
 import React from "react"
 import { Route} from "react-router-dom";
-import { Taco2Go } from "./components/Taco2Go"
 import { MyBuiltTacoCard } from './components/builtTaco/BuiltTacoCard';
 import { MyBuiltTacoList } from './components/builtTaco/BuiltTacoList';
 
@@ -13,14 +12,14 @@ export const ApplicationViews = () => {
             lineHeight: "1.75rem"
         }}>
             <Route exact path={["/"]}>
-                <Taco2Go/>
+                {/* <Taco2Go/> */}
             </Route>
             <Route exact path="/mybuilttacos">
                 <MyBuiltTacoCard  />
             </Route>
-            <Route exact path="/mybuilttaco">
+            {/* <Route exact path="/mybuilttaco">
                 <MyBuiltTacoList />
-            </Route>
+            </Route> */}
             {/* <Route exact path="/games/:gameId/update">
                 <UpdateGameForm />
             </Route>
