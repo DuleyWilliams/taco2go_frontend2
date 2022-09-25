@@ -53,7 +53,7 @@ fieldset {
     z-index: 1;
     min-height: 21rem;
     min-width: 12rem;
-    padding: 0 12rem;
+    padding: 0 13rem;
     background-color: hsla(0,0%,100%,0.75);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -68,4 +68,9 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
+}
+
+img.logoName {
+    width: 200px;
+    margin-top: 1.25em;
 }
