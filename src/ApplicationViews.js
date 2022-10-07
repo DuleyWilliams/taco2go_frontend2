@@ -12,10 +12,10 @@ export const ApplicationViews = () => {
             lineHeight: "1.75rem"
         }}>
             <Route exact path={["/"]}>
-                {/* <Taco2Go/> */}
+                <MyBuiltTacoList  />
             </Route>
             <Route exact path="/mybuilttacos">
-                <MyBuiltTacoCard  />
+                <MyBuiltTacoList />
             </Route>
             {/* <Route exact path="/mybuilttaco">
                 <MyBuiltTacoList />
@@ -23,8 +23,8 @@ export const ApplicationViews = () => {
             {/* <Route exact path="/games/:gameId/update">
                 <UpdateGameForm />
             </Route>
-            <Route exact path="/games/:gameId(\d+)">
-                <GameDetails /> 
+            <Route exact path="/mybuilttacos/edit/:tacoId(\d+)">
+                <MyBuiltTacoEdit /> 
             </Route>  
             <Route exact path="/events">
                 <EventList />

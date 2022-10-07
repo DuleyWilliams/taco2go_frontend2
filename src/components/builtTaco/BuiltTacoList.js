@@ -18,6 +18,7 @@ export const MyBuiltTacoList = () => {
       // We'll do something more interesting with this data soon.
     });
   };
+ 
 
   useEffect(() => {
     getTacos();
@@ -32,24 +33,24 @@ export const MyBuiltTacoList = () => {
     <>
       {" "}
       <section className="section-header">
-        <h1>Add Sneakers</h1>
+        <h1>Build A Taco</h1>
       </section>
       <section className="section-btn">
         <button
           type="button"
           className="btn"
           onClick={() => {
-            history("/myCollection/find");
+            history("/mybuilttacos");
           }}
         >
-          Find
+          Save
         </button>
       </section>
       <div className="container-cards">
         {tacos.map((taco) => (
           <MyBuiltTacoCard 
             key={taco.id}
-            collection={taco}
+            taco={taco}
             handleDeleteTaco={handleDeleteTaco}
           />
         ))}

@@ -42,8 +42,8 @@ export const deleteMyBuiltTaco = (id) => {
     })
 }
 
-export const getMyBuiltTacoById = (myBuiltTacosId) => {
-    return fetch(`${remoteURL}/mybuilttacos/${myBuiltTacosId}`, {
+export const getMyBuiltTacoById = (id) => {
+    return fetch(`${remoteURL}/mybuilttacos/${id}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
         } 
