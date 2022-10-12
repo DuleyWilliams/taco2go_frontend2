@@ -36,6 +36,9 @@ code {
 
 .nav-item {
     list-style-type: none;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
 }
 
 /* General button style */
