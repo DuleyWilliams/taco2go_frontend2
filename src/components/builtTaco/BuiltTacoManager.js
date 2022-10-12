@@ -20,15 +20,15 @@ export const createMyBuiltTaco= (createMyBuiltTaco) => {
     }).then(response => response.json())
 }
 
-export const updateMyBuiltTaco = (editMyBuiltTaco, id) => {
-    console.log('updatedMyBuiltTaco', editMyBuiltTaco)
-    return fetch(`${remoteURL}/mybuilttacos/${id}`, {
+export const updateMyBuiltTaco = (updateMyBuiltTaco, id) => {
+    // console.log('updatedMyBuiltTaco', editMyBuiltTaco)
+    return fetch(`${remoteURL}/mybuilttacos/edit/${id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(editMyBuiltTaco)
+        body: JSON.stringify(updateMyBuiltTaco, id)
     })
 }
 
@@ -42,8 +42,8 @@ export const deleteMyBuiltTaco = (id) => {
     })
 }
 
-export const getMyBuiltTacoById = (myBuiltTacosId) => {
-    return fetch(`${remoteURL}/mybuilttacos/${myBuiltTacosId}`, {
+export const getMyBuiltTacoById = (id) => {
+    return fetch(`${remoteURL}/mybuilttacos/${id}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
         } 

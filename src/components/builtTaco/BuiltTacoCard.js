@@ -1,44 +1,78 @@
-import React, { useState, useEffect } from "react";
-import "./BuiltTaco.css";
+import React, { useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getAllMyBuiltTacos, createMyBuiltTaco } from "./BuiltTacoManager";
-import { useHistory } from "react-router-dom";
+import { getAllMyBuiltTacos, getMyBuiltTacoById, createMyBuiltTaco, updateMyBuiltTaco } from "./BuiltTacoManager"
+import "./BuiltTaco.css"
 
-export const MyBuiltTacoCard = ({ taco, handleDeleteTaco}) => {
-  const [myTacos, setMyTaco] = useState({
-    tacoLoverId: taco.tacoLoverId_id,
-    protein: taco.tacoProteinId_id,
-    shell: taco.tacoShellId_id,
-    name: taco.name,
-  });
-
-  const handleClickSaveTaco = (event) => {
-    event.preventDefault(); //Prevents the browser from submitting the form
-    createMyBuiltTaco(myTacos).then(() => history("/mybuilttacos/added"));
-  };
+export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) => {
 
   const history = useHistory();
+  const [tacos, setBuiltTacos] = useState([]);
+
+  useEffect(() => {
+    getMyBuiltTacoById(taco.id);
+  }, []);
+
+  useEffect(() => {
+    updateMyBuiltTaco(taco.id);
+  }, []);
+
+  // To add to edit page//__________________________________
+  //_____________________________________
+  const handleFieldChange = (evt) => {
+    const stateToChange = { ...tacos };
+    stateToChange[evt.target.id] = evt.target.value;
+    setBuiltTacos(stateToChange);
+  };
+
+  
 
   return (
-    //This formatting will build my actual card once API info is imported.
+        //This formatting will build my actual card once API info is imported.
+    
+        <div className="card">
+          <div className="card-content">
+            <section className="card-header"></section>
+            <h2>
+              Name: <span className="card-taconame">{taco.name}</span>
+            </h2>
+                <form>
+                  <fieldset className="built-taco-form">
+                    <div className="formgrid">
+                      <input
+                        type="radio"
+                        required
+                        className="form-control"
+                        onChange={handleFieldChange}
+                      />
+                    </div>
+                  </fieldset>
+                </form>
+                <Link to={`/mybuilttacos/edit/${taco.id}`}>
+              <button type="button" onClick={ e => {
+                e.preventDefault()
+                updateExistingTaco(taco.id)
+                }
+              }>
+                Edit
+              </button>
+            </Link>
+            <Link to={`/`}>
+              <button type="button" onClick={ e => {
+                  e.preventDefault()
+                  handleDeleteTaco(taco.id)
+                }
+              }>
+                Delete
+              </button>
+            </Link>
+          </div>
+        </div>
+      );
+    };
 
-    <div className="card">
-      <div className="card-content">
-        <section className="card-header"></section>
-        {/* <section className="card-image">
-          <img src={taco.media.imageUrl} alt="MyKickz" />
-        </section> */}
-        <h2>
-          Brand: <span className="card-kickname">{taco.tacoLoverId_id}</span>
-        </h2>
-        <p>Style: {taco.title}</p>
-        <p>Colorway: {taco.colorway}</p> <p>year:{taco.year} </p>
-        <Link to={`/myCollection/${taco.id}`}>
-          <button type="button" onClick={handleClickSaveTaco}>
-            Add
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-};
+                  {/* <Link to={`/myBuiltTacos/${builtTacos.id}`}>
+                    <button type="button" onClick={handleClickSaveTaco}>
+                      Add
+                    </button>
+                  </Link> */}

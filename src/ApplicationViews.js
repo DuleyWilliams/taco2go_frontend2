@@ -2,6 +2,7 @@ import React from "react"
 import { Route} from "react-router-dom";
 import { MyBuiltTacoCard } from './components/builtTaco/BuiltTacoCard';
 import { MyBuiltTacoList } from './components/builtTaco/BuiltTacoList';
+import { MyBuiltTacoEdit } from "./components/builtTaco/BuiltTacoEdit";
 
 
 export const ApplicationViews = () => {
@@ -12,20 +13,20 @@ export const ApplicationViews = () => {
             lineHeight: "1.75rem"
         }}>
             <Route exact path={["/"]}>
-                {/* <Taco2Go/> */}
+                <MyBuiltTacoList  />
             </Route>
             <Route exact path="/mybuilttacos">
-                <MyBuiltTacoCard  />
+                <MyBuiltTacoList />
             </Route>
+            <Route exact path="/mybuilttacos/edit/:tacoId(\d+)">
+                <MyBuiltTacoEdit /> 
+            </Route>  
             {/* <Route exact path="/mybuilttaco">
                 <MyBuiltTacoList />
             </Route> */}
             {/* <Route exact path="/games/:gameId/update">
-                <UpdateGameForm />
             </Route>
-            <Route exact path="/games/:gameId(\d+)">
-                <GameDetails /> 
-            </Route>  
+                <UpdateGameForm />
             <Route exact path="/events">
                 <EventList />
             </Route>

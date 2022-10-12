@@ -36,11 +36,30 @@ code {
 
 .nav-item {
     list-style-type: none;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
 }
 
 /* General button style */
 .btn {
-	border: none;
+	    /* border: none; */
+    /* font-family: Menlo; */
+    /* font-size: inherit; */
+    color: inherit;
+    /* background: none; */
+    cursor: pointer;
+    padding: 4px 43px;
+    display: inline-block;
+    margin: 5px 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+}
+	/* border: none;
 	font-family: Menlo;
 	font-size: inherit;
 	color: inherit;
@@ -56,8 +75,8 @@ code {
 	position: relative;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-}
+	transition: all 0.3s; */
+
 
 .btn:after {
 	content: '';
