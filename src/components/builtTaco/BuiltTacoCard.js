@@ -48,24 +48,17 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
                     </div>
                   </fieldset>
                 </form>
-                <Link to={`/mybuilttacos/edit/${taco.id}`}>
-              <button type="button" onClick={ e => {
-                e.preventDefault()
-                updateExistingTaco(taco.id)
-                }
-              }>
-                Edit
-              </button>
-            </Link>
-            <Link to={`/`}>
-              <button type="button" onClick={ e => {
-                  e.preventDefault()
-                  handleDeleteTaco(taco.id)
-                }
-              }>
-                Delete
-              </button>
-            </Link>
+                <Link to={`/mybuilttacos/edit/${taco.id}`}>Edit
+                </Link>
+              <Link to={`/`}>
+                <button type="button" onClick={ e => {
+                    e.preventDefault()
+                    handleDeleteTaco(taco.id)
+                  }
+                }>
+                  Delete
+                </button>
+              </Link>
           </div>
         </div>
       );
