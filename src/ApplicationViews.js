@@ -3,6 +3,7 @@ import { Route} from "react-router-dom";
 import { MyBuiltTacoCard } from './components/builtTaco/BuiltTacoCard';
 import { MyBuiltTacoList } from './components/builtTaco/BuiltTacoList';
 import { MyBuiltTacoEdit } from "./components/builtTaco/BuiltTacoEdit";
+import { BuiltTacoForm } from "./components/builtTaco/BuiltTacoForm";
 
 
 export const ApplicationViews = () => {
@@ -20,6 +21,9 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/mybuilttacos/edit/:tacoId(\d+)">
                 <MyBuiltTacoEdit /> 
+            </Route>  
+            <Route exact path="/mybuilttacos/new">
+                <BuiltTacoForm /> 
             </Route>  
             {/* <Route exact path="/mybuilttaco">
                 <MyBuiltTacoList />

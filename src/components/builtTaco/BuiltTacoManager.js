@@ -20,7 +20,7 @@ export const createMyBuiltTaco= (createMyBuiltTaco) => {
     }).then(response => response.json())
 }
 
-export const updateMyBuiltTaco = (updateMyBuiltTaco, id) => {
+export const updateMyBuiltTaco = (id) => {
     // console.log('updatedMyBuiltTaco', editMyBuiltTaco)
     return fetch(`${remoteURL}/mybuilttacos/edit/${id}`, {
         method: "PUT",
@@ -28,7 +28,7 @@ export const updateMyBuiltTaco = (updateMyBuiltTaco, id) => {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`,
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(updateMyBuiltTaco, id)
+        body: JSON.stringify(id)
     })
 }
 
