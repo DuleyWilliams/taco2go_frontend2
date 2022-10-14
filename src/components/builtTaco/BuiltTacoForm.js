@@ -13,7 +13,10 @@ export const BuiltTacoForm = () => {
   const [shells, setShells] = useState([]);
   const [proteins, setProteins] = useState([]);
   const [toppings, setToppings] = useState([]);
+  const [sauces, setSauces] = useState([]);
+
   const [toppingIds, setToppingIds] = useState([]);
+  const [sauceIds, setSauceIds] = useState([]);
 
   const handleControlledInputChange = (event) => {
     const newTaco = { ...taco };
@@ -26,17 +29,29 @@ export const BuiltTacoForm = () => {
     setTaco(newTaco);
   };
 
-  const [checkedStates, setCheckedStates] = useState([]);
+  const [checkedToppingStates, setcheckedToppingStates] = useState([]);
+  const [checkedSauceStates, setCheckedSauceStates] = useState([]);
 
-  const handleCheckboxChange = (toppingIndexPosition) => {
-    const newCheckedStates = checkedStates.map(
+  const handleToppingCheckboxChange = (toppingIndexPosition) => {
+    const newCheckedStates = checkedToppingStates.map(
       (isChecked, checkedStateIndex) => {
         return checkedStateIndex === toppingIndexPosition
           ? !isChecked
           : isChecked;
       }
     );
-    setCheckedStates(newCheckedStates);
+    setcheckedToppingStates(newCheckedStates);
+  };
+
+  const handleSauceCheckboxChange = (toppingIndexPosition) => {
+    const newCheckedStates = checkedSauceStates.map(
+      (isChecked, checkedStateIndex) => {
+        return checkedStateIndex === toppingIndexPosition
+          ? !isChecked
+          : isChecked;
+      }
+    );
+    setCheckedSauceStates(newCheckedStates);
   };
 
   const handleSubmitData = (e) => {
@@ -48,6 +63,7 @@ export const BuiltTacoForm = () => {
       shell_id: taco.shellId,
       protein_id: taco.proteinId,
       topping_ids: toppingIds,
+      sauce_ids: sauceIds,
     };
     console.log(newTaco);
   };
@@ -67,19 +83,36 @@ export const BuiltTacoForm = () => {
   useEffect(() => {
     getAllToppings().then((toppings) => {
       setToppings(toppings);
-      setCheckedStates(new Array(toppings.length).fill(false));
+      setcheckedToppingStates(new Array(toppings.length).fill(false));
+    });
+  }, []);
+
+  useEffect(() => {
+    getAllSauces().then((sauces) => {
+      setSauces(sauces);
+      setCheckedSauceStates(new Array(sauces.length).fill(false));
     });
   }, []);
 
   useEffect(() => {
     const selectedToppings = toppings.filter((_, index) => {
-      return checkedStates[index];
+      return checkedToppingStates[index];
     });
 
     const selectedToppingIds = selectedToppings.map((topping) => topping.id);
 
     setToppingIds(selectedToppingIds);
-  }, [checkedStates]);
+  }, [checkedToppingStates]);
+
+  useEffect(() => {
+    const selectedSauces = sauces.filter((_, index) => {
+      return checkedSauceStates[index];
+    });
+
+    const selectedSauceIds = selectedSauces.map((sauce) => sauce.id);
+
+    setSauceIds(selectedSauceIds);
+  }, [checkedSauceStates]);
 
   return (
     <form className="tacoForm">
@@ -146,10 +179,30 @@ export const BuiltTacoForm = () => {
                   id={topping.type}
                   value={topping.id}
                   name={topping.type}
-                  checked={checkedStates[index]}
-                  onChange={() => handleCheckboxChange(index)}
+                  checked={checkedToppingStates[index]}
+                  onChange={() => handleToppingCheckboxChange(index)}
                 />
                 <label htmlFor={topping.type}>{topping.type}</label>
+              </>
+            );
+          })}
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="container-cards">
+          <h2>Sauces</h2>
+          {sauces.map((sauce, index) => {
+            return (
+              <>
+                <input
+                  type="checkbox"
+                  id={sauce.type}
+                  value={sauce.id}
+                  name={sauce.type}
+                  checked={checkedSauceStates[index]}
+                  onChange={() => handleSauceCheckboxChange(index)}
+                />
+                <label htmlFor={sauce.type}>{sauce.type}</label>
               </>
             );
           })}
