@@ -2,13 +2,25 @@
 /*Typography
 --------------------------------------------------------------*/
 
-body, button, input, select, textarea {
-    color: #404040;
+body, input, select, textarea {
+	color: #621145;
     font-family: "Comfortaa", Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1.5;
-    padding: 0;
+    padding: 5;
     margin: 0;
+}
+
+button {
+	color: #621145;
+	background-color: #e5af4a ;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 5;
+    margin: 0;
+	cursor: pointer;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
