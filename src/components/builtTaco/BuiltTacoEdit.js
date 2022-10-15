@@ -1,11 +1,9 @@
-import React, { useState, useEffect} from "react";
-import {
-  getMyBuiltTacoById,
-  updateMyBuiltTaco
-} from "./BuiltTacoManager";
+import React, { useState, useEffect } from "react";
+import { getMyBuiltTacoById, updateMyBuiltTaco } from "./BuiltTacoManager";
 import { useHistory, useParams } from "react-router-dom";
 //
- import "./BuiltTacoEdit.css";
+import "./BuiltTacoEdit.css";
+import { getAllProteins } from "../protein/ProteinManager";
 
 export const MyBuiltTacoEdit = () => {
   const [taco, setTaco] = useState({});
@@ -42,6 +40,12 @@ export const MyBuiltTacoEdit = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getAllProteins().then((proteins) => {
+      setProteins(proteins);
+    });
+  }, []);
+
   return (
     <>
       <h1>Edit Taco</h1>
@@ -56,8 +60,8 @@ export const MyBuiltTacoEdit = () => {
               id="name"
               value={tacoId}
             />
-            </div> 
-            {/* <label htmlFor="whyDidYouBuy">Why did you purchase?</label>
+          </div>
+          {/* <label htmlFor="whyDidYouBuy">Why did you purchase?</label>
 
             <input
               type="radio"
