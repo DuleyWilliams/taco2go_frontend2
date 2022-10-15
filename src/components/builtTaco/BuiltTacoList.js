@@ -40,10 +40,10 @@ export const MyBuiltTacoList = () => {
           type="button"
           className="btn"
           onClick={() => {
-            history("/mybuilttacos");
+            history.push("/mybuilttacos/new");
           }}
         >
-          Save
+          Build-A-Taco
         </button>
       </section>
       <div className="container-cards">

@@ -4,11 +4,14 @@ import {
   updateMyBuiltTaco
 } from "./BuiltTacoManager";
 import { useHistory, useParams } from "react-router-dom";
-// import "./BuiltTacoEdit.css";
+//
+ import "./BuiltTacoEdit.css";
 
 export const MyBuiltTacoEdit = () => {
   const [taco, setTaco] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const [proteins, setProteins] = useState([]);
 
   const { tacoId } = useParams();
   const history = useHistory();
@@ -41,7 +44,7 @@ export const MyBuiltTacoEdit = () => {
 
   return (
     <>
-      <h1>Extras</h1>
+      <h1>Edit Taco</h1>
       <form>
         <fieldset className="extraform">
           <div className="formgrid">

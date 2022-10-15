@@ -36,18 +36,17 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
             <h2>
               Name: <span className="card-taconame">{taco.name}</span>
             </h2>
-                <form>
-                  <fieldset className="built-taco-form">
-                    <div className="formgrid">
-                      <input
-                        type="radio"
-                        required
-                        className="form-control"
-                        onChange={handleFieldChange}
-                      />
-                    </div>
-                  </fieldset>
-                </form>
+                <p>{taco.tacoShellId.type}</p>
+                <p>{taco.tacoProteinId.type}</p>
+                    <p>{taco.protein}</p>
+                    {taco.sauces.map((sauce) => {
+                      return <p>{sauce.type}</p>
+                    }
+                  )}
+                    {taco.toppings.map((topping) => {
+                      return <p>{topping.type}</p>
+                    }
+                  )}
                 <Link to={`/mybuilttacos/edit/${taco.id}`}>Edit
                 </Link>
               <Link to={`/`}>
