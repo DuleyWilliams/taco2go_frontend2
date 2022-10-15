@@ -5,6 +5,7 @@ import { getAllSauces } from "../sauce/SauceManager";
 import { getAllToppings } from "../topping/ToppingManager";
 import { createMyBuiltTaco } from "./BuiltTacoManager";
 import { useHistory } from "react-router-dom";
+import "./BuiltTacoForm.css"
 
 export const BuiltTacoForm = () => {
   const [taco, setTaco] = useState({
@@ -120,7 +121,7 @@ export const BuiltTacoForm = () => {
 
   return (
     <form className="tacoForm">
-      <fieldset>
+      <fieldset className="new_taco_fieldset">
         <div className="form-group">
           <label htmlFor="name">
             <h2>Name Your Taco</h2>
@@ -135,10 +136,7 @@ export const BuiltTacoForm = () => {
           />
         </div>
       </fieldset>
-      <fieldset>
-        <div className="form-group"></div>
-      </fieldset>
-      <fieldset>
+      <fieldset className="new_taco_fieldset">
         <div className="container-cards">
           <h2>Shell</h2>
           {shells?.map((shell) => (
@@ -155,7 +153,7 @@ export const BuiltTacoForm = () => {
           ))}
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="new_taco_fieldset">
         <div className="container-cards">
           <h2>Protein</h2>
           {proteins?.map((protein) => (
