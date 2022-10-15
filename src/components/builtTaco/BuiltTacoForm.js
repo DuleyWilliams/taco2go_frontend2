@@ -4,6 +4,7 @@ import { getAllProteins } from "../protein/ProteinManager";
 import { getAllSauces } from "../sauce/SauceManager";
 import { getAllToppings } from "../topping/ToppingManager";
 import { createMyBuiltTaco } from "./BuiltTacoManager";
+import { useHistory } from "react-router-dom";
 
 export const BuiltTacoForm = () => {
   const [taco, setTaco] = useState({
@@ -15,7 +16,7 @@ export const BuiltTacoForm = () => {
   const [proteins, setProteins] = useState([]);
   const [toppings, setToppings] = useState([]);
   const [sauces, setSauces] = useState([]);
-
+  const history=useHistory();
   const [toppingIds, setToppingIds] = useState([]);
   const [sauceIds, setSauceIds] = useState([]);
 
@@ -66,7 +67,9 @@ export const BuiltTacoForm = () => {
       topping_ids: toppingIds,
       sauce_ids: sauceIds,
     };
-    createMyBuiltTaco(newTaco);
+    createMyBuiltTaco(newTaco)
+        .then(()=> history.push("/mybuilttacos") )
+    
   };
 
   useEffect(() => {
