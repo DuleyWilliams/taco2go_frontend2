@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { getMyBuiltTacoById, updateMyBuiltTaco } from "./BuiltTacoManager";
+=======
+import React, { useState, useEffect} from "react";
+import {
+  getMyBuiltTacoById,
+  updateMyBuiltTaco
+} from "./BuiltTacoManager";
+import { getAllProteins } from "../protein/ProteinManager";
+import { getAllShells } from "../shell/ShellManager";
+>>>>>>> d363f706f05382955a0f902e425a842d606e66d1
 import { useHistory, useParams } from "react-router-dom";
 //
 import "./BuiltTacoEdit.css";
@@ -8,11 +18,21 @@ import { getAllProteins } from "../protein/ProteinManager";
 export const MyBuiltTacoEdit = () => {
   const [taco, setTaco] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
   const [proteins, setProteins] = useState([]);
-
+  const [shells, setShells] = useState([]);
   const { tacoId } = useParams();
   const history = useHistory();
+
+  const handleControlledInputChange = (event) => {
+    const newTaco = { ...taco };
+    let selectedVal = event.target.value;
+    if (event.target.id.includes("Id")) {
+      selectedVal = parseInt(selectedVal);
+    }
+    newTaco[event.target.id] = selectedVal;
+    // update state
+    setTaco(newTaco);
+  };
 
   const handleFieldChange = (evt) => {
     const stateToChange = { ...taco };
@@ -35,7 +55,7 @@ export const MyBuiltTacoEdit = () => {
 
   useEffect(() => {
     getMyBuiltTacoById(tacoId).then((taco) => {
-      setTaco(taco);
+      setTaco({...taco, shellId:taco.tacoShellId.id, proteinId:taco.tacoProteinId.id}); 
       setIsLoading(false);
     });
   }, []);
@@ -46,22 +66,59 @@ export const MyBuiltTacoEdit = () => {
     });
   }, []);
 
+  useEffect(() => {
+    getAllShells().then((shells) => {
+      setShells(shells);
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(taco)
+    },[taco]);
+
+
   return (
     <>
       <h1>Edit Taco</h1>
       <form>
         <fieldset className="extraform">
-          <div className="formgrid">
+          <div className="">
             <input
               type="text"
               required
               className="form-control"
               onChange={handleFieldChange}
               id="name"
-              value={tacoId}
+              value={taco.name}
             />
-          </div>
-          {/* <label htmlFor="whyDidYouBuy">Why did you purchase?</label>
+             <h2>Protein</h2>
+          {proteins?.map((protein) => (
+            <label htmlFor="protein">
+              <input
+                id="proteinId"
+                checked={taco.proteinId === protein.id}
+                onChange={handleControlledInputChange}
+                type="radio"
+                value={protein.id}
+              />
+              {protein.type}
+            </label>
+          ))}
+                       <h2>Shell</h2>
+          {shells?.map((shell) => (
+            <label htmlFor="shell">
+              <input
+                id="shellId"
+                checked={taco.shellId === shell.id}
+                onChange={handleControlledInputChange}
+                type="radio"
+                value={shell.id}
+              />
+              {shell.type}
+            </label>
+          ))}
+            </div> 
+            {/* <label htmlFor="whyDidYouBuy">Why did you purchase?</label>
 
             <input
               type="radio"
@@ -95,6 +152,6 @@ export const MyBuiltTacoEdit = () => {
           </div>
         </fieldset>
       </form>
-    </>
+    </> 
   );
 };
