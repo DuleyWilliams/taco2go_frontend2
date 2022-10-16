@@ -48,10 +48,12 @@ code {
 }
 
 .nav-item {
-    list-style-type: none;
+	list-style-type: none;
     vertical-align: middle;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
+    align-content: center;
+    justify-content: center;
 }
 
 /* General button style */

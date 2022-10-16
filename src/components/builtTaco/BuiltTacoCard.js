@@ -34,7 +34,7 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
           <div className="card-content">
             <section className="card-header"></section>
            <img src="http://localhost:3000/images/smileyTac.svg" width="150px" alt="Smiling Taco"></img>
-           <p> Name:</p>
+           <p>Taco Name:</p>
             <h2>
               <span className="card-taconame">{taco.name}</span>
             </h2>

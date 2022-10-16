@@ -27,11 +27,13 @@
   background: #f8e7bd;
   margin-bottom: 2em;
   flex: 0 1 24%;
+  border-radius: 0.25em;
 }
 
 .card-content {
   padding: 0.5em;
   background-color: #f8e7bd;
+  width: 275px;
 }
 
 .card-content h3 {

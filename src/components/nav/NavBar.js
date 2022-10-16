@@ -7,11 +7,11 @@ export const NavBar = () => {
   const history = useHistory()
   return (
       <ul className="navbar">
-          <li className="navbar__image">
-                <Link to="/mybuilttacos"></Link>
+          <li className="navbar__image" a href="/">
+                <Link to="/"></Link>
           </li>
           <li className="navbar__item">
-              <Link to="/mybuilttacos">Build A Taco</Link>
+              <Link to="/mybuilttacos"><button>Build A Taco</button></Link>
           </li>
           {/* <li className="navbar__item">
           <Link to="/events">Events</Link>
@@ -22,7 +22,7 @@ export const NavBar = () => {
           {
               (localStorage.getItem("lu_token") !== null) ?
                   <li className="nav-item">
-                      <button className="nav-link fakeLink"
+                      <button className=""
                           onClick={() => {
                               localStorage.removeItem("lu_token")
                               history.push({ pathname: "/" })

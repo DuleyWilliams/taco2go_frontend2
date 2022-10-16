@@ -124,7 +124,7 @@ export const BuiltTacoForm = () => {
       <fieldset className="new_taco_fieldset">
         <div className="form-group">
           <label htmlFor="name">
-            <h2>Name Your Taco</h2>
+            <h2>Taco Name</h2>
           </label>
           <input
             type="text"

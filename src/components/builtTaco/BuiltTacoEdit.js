@@ -166,6 +166,7 @@ export const MyBuiltTacoEdit = () => {
       <form>
         <fieldset className="extraform">
           <div className="">
+          <h2>Taco Name</h2>
             <input
               type="text"
               required
