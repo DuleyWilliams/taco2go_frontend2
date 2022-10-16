@@ -12,14 +12,15 @@ body, input, select, textarea {
 }
 
 button {
-	color: #621145;
-	background-color: #e5af4a ;
+    color: #621145;
+    background-color: #e5af4a;
     font-family: "Comfortaa", Arial, sans-serif;
     font-size: 1.5rem;
     line-height: 1.5;
     padding: 5;
-    margin: 0;
-	cursor: pointer;
+    margin: 3px;
+    cursor: pointer;
+    border-radius: 0.25em;
 
 }
 

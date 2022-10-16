@@ -33,12 +33,14 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
         <div className="card">
           <div className="card-content">
             <section className="card-header"></section>
+           <img src="http://localhost:3000/images/smileyTac.svg" width="150px" alt="Smiling Taco"></img>
+           <p> Name:</p>
             <h2>
-              Name: <span className="card-taconame">{taco.name}</span>
+              <span className="card-taconame">{taco.name}</span>
             </h2>
-                <p>{taco.tacoShellId.type}</p>
-                <p>{taco.tacoProteinId.type}</p>
-                    <p>{taco.protein}</p>
+                <h3>Shell: {taco.tacoShellId.type}</h3>
+                <h3>Protein: {taco.tacoProteinId.type}</h3>
+                    <h3>{taco.protein}</h3>
                     {taco.sauces.map((sauce) => {
                       return <p>{sauce.type}</p>
                     }
@@ -47,7 +49,7 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
                       return <p>{topping.type}</p>
                     }
                   )}
-                <Link to={`/mybuilttacos/edit/${taco.id}`}>Edit
+                <Link to={`/mybuilttacos/edit/${taco.id}`}><button>Edit</button>
                 </Link>
               <Link to={`/`}>
                 <button type="button" onClick={ e => {
