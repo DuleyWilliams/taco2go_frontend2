@@ -72,16 +72,17 @@ export const MyBuiltTacoEdit = () => {
 
     // This is an edit, so we need the id
     const editedTaco = {
-      id: parseInt(taco.id),
       name: taco.name,
       shell_id: taco.shellId,
       protein_id: taco.proteinId,
       topping_ids: toppingIds,
       sauce_ids: sauceIds,
     };
-    console.log(editedTaco);
+    // console.log(editedTaco);
 
-    // updateMyBuiltTaco(editedTaco).then(() => history("mybuilttacos/edit"));
+    updateMyBuiltTaco(parseInt(taco.id), editedTaco).then(() =>
+      history.push("mybuilttacos/edit")
+    );
   };
 
   useEffect(() => {
