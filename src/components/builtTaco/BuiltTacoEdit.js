@@ -81,7 +81,7 @@ export const MyBuiltTacoEdit = () => {
     // console.log(editedTaco);
 
     updateMyBuiltTaco(parseInt(taco.id), editedTaco).then(() =>
-      history.push("mybuilttacos/edit")
+      history.push("/")
     );
   };
 
