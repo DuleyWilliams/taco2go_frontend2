@@ -25,8 +25,8 @@ export const Login = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if ("valid" in res && res.valid && "token" in res) {
-          localStorage.setItem("lu_token", res.token);
+        if ("valid" in res && res.valid && "lu_token" in res) {
+          localStorage.setItem("lu_token", res.lu_token);
           history.push("/");
         } else {
           invalidDialog.current.showModal();

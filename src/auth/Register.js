@@ -40,8 +40,8 @@ export const Register = () => {
             })
                 .then(res => res.json())
                 .then(res => {
-                    if ("token" in res) {
-                        localStorage.setItem("lu_token", res.token)
+                    if ("lu_token" in res) {
+                        localStorage.setItem("lu_token", res.lu_token)
                         history.push("/")
                     }
                 })
