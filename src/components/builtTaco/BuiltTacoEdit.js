@@ -9,12 +9,19 @@ import { getAllToppings } from "../topping/ToppingManager";
 import { getAllSauces } from "../sauce/SauceManager";
 
 export const MyBuiltTacoEdit = () => {
-  const [taco, setTaco] = useState({});
+  const [taco, setTaco] = useState({
+    name: "",
+    shellId: 1,
+    proteinId: 1,
+  });
+
   const [isLoading, setIsLoading] = useState(false);
   const [proteins, setProteins] = useState([]);
   const [shells, setShells] = useState([]);
   const [toppings, setToppings] = useState([]);
   const [sauces, setSauces] = useState([]);
+  const [toppingIds, setToppingIds] = useState([]);
+  const [sauceIds, setSauceIds] = useState([]);
   const [checkedToppingStates, setcheckedToppingStates] = useState([]);
   const [checkedSauceStates, setCheckedSauceStates] = useState([]);
 
@@ -59,7 +66,6 @@ export const MyBuiltTacoEdit = () => {
     stateToChange[evt.target.id] = evt.target.value;
     setTaco(stateToChange);
   };
-
   const updateExistingTaco = (evt) => {
     evt.preventDefault();
     setIsLoading(true);
@@ -68,24 +74,39 @@ export const MyBuiltTacoEdit = () => {
     const editedTaco = {
       id: parseInt(taco.id),
       name: taco.name,
+      shell_id: taco.shellId,
+      protein_id: taco.proteinId,
+      topping_ids: toppingIds,
+      sauce_ids: sauceIds,
     };
+    console.log(editedTaco);
 
-    updateMyBuiltTaco(editedTaco).then(() => history("mybuilttacos/edit"));
+    // updateMyBuiltTaco(editedTaco).then(() => history("mybuilttacos/edit"));
   };
 
   useEffect(() => {
-    getMyBuiltTacoById(tacoId).then((taco) => {
-      setTaco({
-        ...taco,
-        shellId: taco.tacoShellId.id,
-        proteinId: taco.tacoProteinId.id,
-      }).then(() => {
+    getMyBuiltTacoById(tacoId)
+      .then((taco) => {
+        setTaco({
+          ...taco,
+          shellId: taco.tacoShellId.id,
+          proteinId: taco.tacoProteinId.id,
+        });
+      })
+      .then(() => {
+        getAllSauces().then((sauces) => {
+          setSauces(sauces);
+        });
+      })
+      .then(() => {
         getAllToppings().then((toppings) => {
           setToppings(toppings);
+          const intialCheckedToppingStates = toppings.map((topping) =>
+            taco?.topping_ids?.includes(topping.id)
+          );
+          setcheckedToppingStates(intialCheckedToppingStates);
         });
       });
-      setIsLoading(false);
-    });
   }, []);
 
   useEffect(() => {
@@ -100,25 +121,43 @@ export const MyBuiltTacoEdit = () => {
     });
   }, []);
 
+  // whenever our toppings checkboxes change, make sure the Ids we're capturing stay up to date
   useEffect(() => {
-    getAllToppings().then((toppings) => {
-      setToppings(toppings);
-      const intialCheckedToppingStates = toppings.map((topping) =>
-        taco.topping_ids.includes(topping.id)
-      );
-      setcheckedToppingStates(intialCheckedToppingStates);
+    const selectedToppings = toppings.filter((_, index) => {
+      return checkedToppingStates[index];
     });
-  }, [taco]);
 
+    const selectedToppingIds = selectedToppings.map((topping) => topping.id);
+
+    setToppingIds(selectedToppingIds);
+  }, [checkedToppingStates]);
+
+  // whenever our sauces checkboxes change, make sure the Ids we're capturing stay up to date
   useEffect(() => {
-    getAllSauces().then((sauces) => {
-      setSauces(sauces);
-      const intialCheckedSauceStates = sauces.map((sauce) =>
-        taco.sauce_ids.includes(sauce.id)
-      );
-      setCheckedSauceStates(intialCheckedSauceStates);
+    const selectedSauces = sauces.filter((_, index) => {
+      return checkedSauceStates[index];
     });
-  }, [taco]);
+
+    const selectedSauceIds = selectedSauces.map((sauce) => sauce.id);
+
+    setSauceIds(selectedSauceIds);
+  }, [checkedSauceStates]);
+
+  // when "sauces" from the server arrive, run this code to set their initial checkbox states
+  useEffect(() => {
+    const intialCheckedSauceStates = sauces.map((sauce) =>
+      taco?.sauce_ids?.includes(sauce.id)
+    );
+    setCheckedSauceStates(intialCheckedSauceStates);
+  }, [sauces]);
+
+  // when "toppings" from the server arrive, run this code to set their initial checkbox states
+  useEffect(() => {
+    const intialCheckedToppingStates = toppings.map((topping) =>
+      taco?.topping_ids?.includes(topping.id)
+    );
+    setcheckedToppingStates(intialCheckedToppingStates);
+  }, [toppings]);
 
   return (
     <>
@@ -130,7 +169,7 @@ export const MyBuiltTacoEdit = () => {
               type="text"
               required
               className="form-control"
-              onChange={handleFieldChange}
+              onChange={handleControlledInputChange}
               id="name"
               value={taco.name}
             />
