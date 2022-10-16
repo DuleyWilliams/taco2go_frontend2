@@ -50,7 +50,7 @@ export const Login = () => {
           {/* <h1>🌮Taco2️⃣Go🌮</h1> */}
           <img className="logoName" src="http://localhost:3000/images/Taco2Go_logo.svg"></img>
           <h2>Please sign in</h2>
-          <fieldset>
+          <fieldset className="loginForm">
             <label htmlFor="inputUsername"> Username </label>
             <input
               ref={username}
