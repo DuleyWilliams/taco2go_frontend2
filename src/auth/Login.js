@@ -61,8 +61,8 @@ export const Login = () => {
               required
               autoFocus
             />
-          </fieldset>
-          <fieldset>
+          {/* </fieldset>
+          <fieldset> */}
             <label htmlFor="inputPassword"> Password </label>
             <input
               ref={password}
@@ -73,15 +73,15 @@ export const Login = () => {
               required
             />
           </fieldset>
-          <fieldset
+          {/* <fieldset
             style={{
               textAlign: "center",
             }}
-          >
+          > */}
             <button className="btn btn-1 btn-sep icon-send" type="submit">
               Sign In
             </button>
-          </fieldset>
+          {/* </fieldset> */}
         </form>
       </section>
       <section className="link--register">

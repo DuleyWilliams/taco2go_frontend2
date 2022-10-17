@@ -63,44 +63,41 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="inputUsername">Username</label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
-                </fieldset>
-                <fieldset>
+                
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
-                </fieldset>
-                <fieldset>
+               
+
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
-                </fieldset>
-                <fieldset>
+                
+
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
-                </fieldset>
-                <fieldset>
+                
+
                     <label htmlFor="lastName"> Last Name </label>
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
-                <fieldset>
+                
+
                     <label htmlFor="email"> Email</label>
                     <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
-                </fieldset>
-                <fieldset>
+                
+
                     <label htmlFor="userCity"> City</label>
                     <input ref={userCity} type="text" name="userCity" className="form-control" placeholder="City" required />
-                </fieldset>
-                <fieldset>
+                
+
                     <label htmlFor="userState"> State</label>
                     <input ref={userState} type="text" name="userState" className="form-control" placeholder="State Format - NY" required />
-                </fieldset>
-                <fieldset>
+               
+
                     <label htmlFor="profilePic"> Picture URL </label>
                     <input ref={profilePic} type="text" name="profilePic" type="URL" className="form-control" placeholder="URL" />
                 </fieldset>
-                <fieldset style={{
-                    textAlign: "center"
-                }}>
+               
                     <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
-                </fieldset>
+  
             </form>
             <section className="link--register">
                 Already registered? <Link to="/login">Login</Link>

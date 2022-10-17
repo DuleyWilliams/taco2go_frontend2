@@ -3,9 +3,9 @@
 --------------------------------------------------------------*/
 
 body, input, select, textarea {
+    /* font-size: 1.25rem; */
 	color: #621145;
     font-family: "Comfortaa", Arial, sans-serif;
-    font-size: 1.25rem;
     line-height: 1.5;
     padding: 5;
     margin: 0;
@@ -15,13 +15,12 @@ button {
     color: #621145;
     background-color: #e5af4a;
     font-family: "Comfortaa", Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.5;
-    padding: 5;
     margin: 3px;
     cursor: pointer;
     border-radius: 0.25em;
-
+    border-color: #621145;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,10 +47,12 @@ code {
 }
 
 .nav-item {
-    list-style-type: none;
+	list-style-type: none;
     vertical-align: middle;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
+    align-content: center;
+    justify-content: center;
 }
 
 /* General button style */
@@ -114,7 +115,7 @@ code {
 
 /* Icon separator */
 .btn-sep {
-	padding: 25px 60px 25px 120px;
+	padding: 30px 50px 30px 100px;
 }
 
 .btn-sep:before {
