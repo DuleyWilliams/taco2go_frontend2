@@ -178,6 +178,7 @@ export const MyBuiltTacoEdit = () => {
             <h2>Protein</h2>
             {proteins?.map((protein) => (
               <label htmlFor="protein">
+               <ul>
                 <input
                   id="proteinId"
                   checked={taco.proteinId === protein.id}
@@ -186,6 +187,7 @@ export const MyBuiltTacoEdit = () => {
                   value={protein.id}
                 />
                 {protein.type}
+              </ul>
               </label>
             ))}
             <h2>Shell</h2>
@@ -202,12 +204,13 @@ export const MyBuiltTacoEdit = () => {
               </label>
             ))}
           </div>
-          <fieldset>
+
             <div className="container-cards">
               <h2>Toppings</h2>
               {toppings.map((topping, index) => {
                 return (
                   <>
+                  <ul>
                     <input
                       type="checkbox"
                       id={topping.type}
@@ -217,11 +220,12 @@ export const MyBuiltTacoEdit = () => {
                       onChange={() => handleToppingCheckboxChange(index)}
                     />
                     <label htmlFor={topping.type}>{topping.type}</label>
+                    </ul>
                   </>
                 );
               })}
             </div>
-          </fieldset>
+
           <fieldset>
             <div className="container-cards">
               <h2>Sauces</h2>
@@ -242,28 +246,7 @@ export const MyBuiltTacoEdit = () => {
               })}
             </div>
           </fieldset>
-          {/* <label htmlFor="whyDidYouBuy">Why did you purchase?</label>
-
-            <input
-              type="radio"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="whenPurchased"
-              value={taco.whenPurchased}
-            />
-            <label htmlFor="whenPurchased">When did you purchase?</label>
-
-            <input
-              type="text-area"
-              required
-              className="form-control"
-              onChange={handleFieldChange}
-              id="wherePurchased"
-              value={kick.wherePurchased}
-            />
-            <label htmlFor="wherePurchased">Where did you purchase?</label>
-          </div> */}
+          
           <div className="alignRight">
             <button
               type="button"

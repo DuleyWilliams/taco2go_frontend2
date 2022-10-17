@@ -1,13 +1,20 @@
 .h1, h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 .fieldset.new_taco {
-    min-width: 0;
-    margin: 0;
-    border: 0;
+  min-width: 0;
+  margin: 0;
+  border: 0;
 }
 
+form  {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+}
 
 /* fieldset {
     max-width: 40em;
@@ -20,19 +27,20 @@
   } */
   
   fieldset {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* background: #f8e7bd; */
+    /* flex-wrap: nowrap; */
+    /* align-items: flex-start; */
     max-width: 29em;
     padding: 10px;
-    margin: 2em auto;
+    margin: 1em auto;
     border-color: #621145;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
-    background: #f8e7bd;
-    flex-wrap: nowrap;
     align-content: stretch;
     justify-content: space-between;
-    align-items: flex-start;
+    border: none;
   } 
 
 
@@ -99,5 +107,5 @@
     border: 0 none;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
-    background: aliceblue;
+    background: #ffe7bb;
   }

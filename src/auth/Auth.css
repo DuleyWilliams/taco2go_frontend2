@@ -47,7 +47,7 @@
 }
 
 .form--login {
-    background-size: cover;
+    /* background-size: cover; */
     background-position-x: center;
     background-image: url(http://localhost:3000/images/happyTac.svg);
     z-index: 1;
