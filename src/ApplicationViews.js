@@ -10,7 +10,9 @@ export const ApplicationViews = () => {
   
   return <>
         <main style={{
-            margin: "5rem 2rem",
+            // margin: "5rem 2rem",
+            // lineHeight: "1.75rem"
+            margin: "3rem 3rem",
             lineHeight: "1.75rem"
         }}>
             <Route exact path={["/"]}>

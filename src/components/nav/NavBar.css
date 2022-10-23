@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&family=Roboto:wght@300;400&display=swap');
 
 .navbar {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: left;
-    background-color: #ffe7bb;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+  background-color: #ffe7bb;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 3em;
+  margin: 0;
 }
 
 .navbar__item {
