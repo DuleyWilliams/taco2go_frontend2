@@ -1,3 +1,20 @@
+.form-control-edit {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 /* fieldset {
     max-width: 40em;
     padding: 4px;
@@ -9,12 +26,35 @@
   } */
   
   fieldset {
-    max-width: 29em;
-    padding: 10px;
-    /* margin: 2em auto; */
+    
+    max-width: 100%;
+    padding: 7px;
+    margin: 1em auto;
     /* border: 0 none; */
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
+    margin: 1em auto;
+    border: 0 none;
+    background: #fff9ea;
+    /* margin: 2em auto; */
+    /* border: 0 none; */
+    /* background: aliceblue;
+    /* max-width: 74em;
+    padding: 7px;
+    margin: 1em auto; */
+    /* border: 0 none; */
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    margin: 1em auto;
+    border: 0 none;
+    background: #fff9ea; */
+    /* background: aliceblue;
+    /* max-width: 29em;
+    padding: 10px; */
+    /* margin: 2em auto; */
+    /* border: 0 none; */
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px; */
     /* background: aliceblue; */
   } 
 
@@ -30,7 +70,7 @@
   }
   
   fieldset button {
-    max-width: 9em;
+    /* max-width: 9em;
     padding: 0.5em;
     margin: 0.3em auto;
     background-color: cornflowerblue;
@@ -41,7 +81,7 @@
     display: inline-block;
     font-size: 14px;
     border-radius: 2px;
-    width: 100%;
+    width: 100%; */
     cursor: pointer;
   }
   
@@ -49,7 +89,7 @@
     box-sizing: border-box;
     user-select: none;
     cursor: pointer;
-    text-align: right;
+    text-align: left;
   }
   fieldset input:focus + label {
     color: #933;
@@ -75,12 +115,59 @@
     text-align: right;
   }
   
-  .extraform{
-    max-width: 29em;
-    padding: 10px;
-    margin: 2em auto;
+  .container-cards-edit {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .container-cards-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .extraform-edit{
+    /* display: flex; */
+    max-width: 100%;
+    padding: 30px;
+    margin: 0em auto;
     border: 0 none;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
-    background: aliceblue;
+    background: #ffe7bb;
+    /* flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: flex-start; */
+    /* display: flex;
+    max-width: 33em;
+    padding: 10px;
+    margin: 0em auto;
+    border: 0 none;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    background: #ffe7bb;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch; */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
   }
+  /* .extraform-edit{
+    display: flex;
+    max-width: 100em;
+    padding: 10px;
+    margin: 0em auto;
+    border: 0 none;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    background: #ffe7bb;
+  } */

@@ -2,11 +2,11 @@
   font-size: 2.5rem;
 }
 
-.fieldset.new_taco {
+/* .fieldset.new_taco {
   min-width: 0;
   margin: 0;
   border: 0;
-}
+} */
 
 form  {
   display: flex;
@@ -15,6 +15,13 @@ form  {
   align-content: flex-start;
   justify-content: space-evenly;
 }
+/* form  {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+} */
 
 /* fieldset {
     max-width: 40em;
@@ -26,12 +33,12 @@ form  {
     background: aliceblue;
   } */
   
-  fieldset {
+ /* fieldset {
     /* display: flex; */
     /* flex-direction: row; */
     /* background: #f8e7bd; */
     /* flex-wrap: nowrap; */
-    /* align-items: flex-start; */
+    /* align-items: flex-start; 
     max-width: 29em;
     padding: 10px;
     margin: 1em auto;
@@ -41,10 +48,10 @@ form  {
     align-content: stretch;
     justify-content: space-between;
     border: none;
-  } 
+  } */
 
 
-  fieldset input,
+  /* fieldset input,
   fieldset button,
   fieldset select {
     box-sizing: border-box;
@@ -52,9 +59,9 @@ form  {
     margin: 0.2em 0;
     outline: none;
     box-shadow: none;
-  }
+  } */
   
-  fieldset button {
+  /* fieldset button {
     max-width: 9em;
     padding: 0.5em;
     margin: 0.3em auto;
@@ -68,44 +75,45 @@ form  {
     border-radius: 2px;
     width: 100%;
     cursor: pointer;
-  }
+  } */
   
-  fieldset label {
+  /* fieldset label {
     box-sizing: border-box;
     user-select: none;
     cursor: pointer;
     text-align: right;
-  }
+  } */
   fieldset input:focus + label {
     color: #933;
   }
   
-  fieldset .formgrid {
+  /* fieldset .formgrid {
     display: grid;
     grid-template-columns: 1fr 1em 2fr;
     grid-gap: 0.3em 0.6em;
     grid-auto-flow: dense;
     align-items: center;
-  }
+  } */
   
-  fieldset input,
+  /* fieldset input,
   fieldset button,
   fieldset select {
     grid-column: 2 /4;
     width: auto;
     margin: 0;
-  }
+  } */
   
   fieldset .alignRight {
     text-align: right;
   }
   
   .extraform{
-    max-width: 29em;
-    padding: 10px;
+    display: flex;
+    max-width: 100em;
+    padding: 1em;
     margin: 2em auto;
     border: 0 none;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-    border-radius: 5px;
+    border-radius: .25em;
     background: #ffe7bb;
   }

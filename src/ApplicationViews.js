@@ -25,24 +25,6 @@ export const ApplicationViews = () => {
             <Route exact path="/mybuilttacos/new">
                 <BuiltTacoForm /> 
             </Route>  
-            {/* <Route exact path="/mybuilttaco">
-                <MyBuiltTacoList />
-            </Route> */}
-            {/* <Route exact path="/games/:gameId/update">
-            </Route>
-                <UpdateGameForm />
-            <Route exact path="/events">
-                <EventList />
-            </Route>
-            <Route exact path="/events/new">
-                <EventForm />
-            </Route>
-            <Route exact path="/events/:eventId/update">
-                <UpdateEventForm />
-            </Route>
-            <Route exact path="/events/:eventId(\d+)">
-                <EventDetails />
-            </Route> */}
         </main>
     </>
 }

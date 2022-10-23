@@ -120,6 +120,7 @@ export const BuiltTacoForm = () => {
   }, [checkedSauceStates]);
 
   return (
+    <>
     <form className="tacoForm">
       <fieldset className="new_taco_fieldset">
         <div className="form-group">
@@ -137,9 +138,10 @@ export const BuiltTacoForm = () => {
         </div>
       </fieldset>
       <fieldset className="new_taco_fieldset">
-        <div className="container-cards">
+        <div className="container-cards-new">
           <h2>Shell</h2>
           {shells?.map((shell) => (
+            <ul>
             <label htmlFor="shell">
               <input
                 id="shellId"
@@ -150,11 +152,12 @@ export const BuiltTacoForm = () => {
               />
               {shell.type}
             </label>
+            </ul>
           ))}
         </div>
       </fieldset>
       <fieldset className="new_taco_fieldset">
-        <div className="container-cards">
+        <div className="container-cards-new">
           <h2>Protein</h2>
           {proteins?.map((protein) => (
             <label htmlFor="protein">
@@ -171,7 +174,7 @@ export const BuiltTacoForm = () => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="container-cards">
+        <div className="container-cards-new">
           <h2>Toppings</h2>
           {toppings.map((topping, index) => {
             return (
@@ -191,7 +194,7 @@ export const BuiltTacoForm = () => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="container-cards">
+        <div className="container-cards-new">
           <h2>Sauces</h2>
           {sauces.map((sauce, index) => {
             return (
@@ -210,7 +213,8 @@ export const BuiltTacoForm = () => {
           })}
         </div>
       </fieldset>
-      <button onClick={handleSubmitData}>Save</button>
     </form>
+      <button onClick={handleSubmitData}>Save</button>
+    </>
   );
 };
