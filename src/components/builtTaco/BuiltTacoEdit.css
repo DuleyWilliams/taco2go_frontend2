@@ -51,6 +51,20 @@ label .boxes {
     background: aliceblue;
   } */
   
+  fieldset .new {
+    
+    max-width: 100%;
+    padding: 7px;
+    margin: 1em auto;
+    /* border: 0 none; */
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border-radius: 5px;
+    margin: 1em auto;
+    border: 0 none;
+    background: #fff9ea;
+  }
+
+
   fieldset .edit {
     
     max-width: 100%;
@@ -86,17 +100,17 @@ label .boxes {
 
 
   fieldset {
-    
     max-width: 100%;
-    padding: 7px;
+    padding: 2em;
     margin: 1em auto;
     /* border: 0 none; */
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 5px;
     margin: 1em auto;
     border: 0 none;
-    /* background: #fff9ea; */
+    background: #78a13e73;
   }
+
 
   fieldset input,
   fieldset button,

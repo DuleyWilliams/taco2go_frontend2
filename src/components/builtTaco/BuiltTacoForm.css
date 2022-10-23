@@ -15,6 +15,20 @@ form  {
   align-content: flex-start;
   justify-content: space-evenly;
 }
+
+fieldset .new {
+    
+  max-width: 100%;
+  padding: 7px;
+  margin: 1em auto;
+  /* border: 0 none; */
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  border-radius: 5px;
+  margin: 1em auto;
+  border: 0 none;
+  background: #fff9ea;
+}
+
 /* form  {
   display: flex;
   flex-direction: column;
