@@ -5,7 +5,7 @@ import { getAllSauces } from "../sauce/SauceManager";
 import { getAllToppings } from "../topping/ToppingManager";
 import { createMyBuiltTaco } from "./BuiltTacoManager";
 import { useHistory } from "react-router-dom";
-import "./BuiltTacoForm.css"
+import "./BuiltTacoEdit.css";
 
 export const BuiltTacoForm = () => {
   const [taco, setTaco] = useState({
@@ -120,10 +120,13 @@ export const BuiltTacoForm = () => {
   }, [checkedSauceStates]);
 
   return (
+    <>
+    
     <form className="tacoForm">
-      <fieldset className="new_taco_fieldset">
-        <div className="form-group">
-          <label htmlFor="name">
+    <h1>Build A Taco</h1>
+      <fieldset className="extraform-edit">
+        <div className="container-cards-name">
+          <label class="edit_label" htmlFor="name">
             <h2>Taco Name</h2>
           </label>
           <input
@@ -136,11 +139,12 @@ export const BuiltTacoForm = () => {
           />
         </div>
       </fieldset>
-      <fieldset className="new_taco_fieldset">
-        <div className="container-cards">
+      <fieldset className="new">
           <h2>Shell</h2>
+        <div className="container-cards-edit">
           {shells?.map((shell) => (
             <label htmlFor="shell">
+              <ul>
               <input
                 id="shellId"
                 checked={taco.shellId === shell.id}
@@ -149,13 +153,14 @@ export const BuiltTacoForm = () => {
                 value={shell.id}
               />
               {shell.type}
+            </ul>
             </label>
           ))}
         </div>
       </fieldset>
-      <fieldset className="new_taco_fieldset">
-        <div className="container-cards">
+      <fieldset className="new">
           <h2>Protein</h2>
+        <div className="container-cards-edit">
           {proteins?.map((protein) => (
             <label htmlFor="protein">
               <input
@@ -170,12 +175,13 @@ export const BuiltTacoForm = () => {
           ))}
         </div>
       </fieldset>
-      <fieldset>
-        <div className="container-cards">
+      <fieldset className="new">
           <h2>Toppings</h2>
+        <div className="container-cards-edit">
           {toppings.map((topping, index) => {
             return (
               <>
+              <label class="edit_label">
                 <input
                   type="checkbox"
                   id={topping.type}
@@ -184,18 +190,20 @@ export const BuiltTacoForm = () => {
                   checked={checkedToppingStates[index]}
                   onChange={() => handleToppingCheckboxChange(index)}
                 />
-                <label htmlFor={topping.type}>{topping.type}</label>
+                <ul htmlFor={topping.type}>{topping.type}</ul>
+                </label>
               </>
             );
           })}
         </div>
       </fieldset>
-      <fieldset>
-        <div className="container-cards">
+      <fieldset className="new">
           <h2>Sauces</h2>
+        <div className="container-cards-edit">
           {sauces.map((sauce, index) => {
             return (
               <>
+              <label class="edit_label">
                 <input
                   type="checkbox"
                   id={sauce.type}
@@ -204,13 +212,15 @@ export const BuiltTacoForm = () => {
                   checked={checkedSauceStates[index]}
                   onChange={() => handleSauceCheckboxChange(index)}
                 />
-                <label htmlFor={sauce.type}>{sauce.type}</label>
+                <ul htmlFor={sauce.type}>{sauce.type}</ul>
+                </label>
               </>
             );
           })}
         </div>
       </fieldset>
-      <button onClick={handleSubmitData}>Save</button>
     </form>
+      <button onClick={handleSubmitData}>Save</button>
+    </>
   );
 };

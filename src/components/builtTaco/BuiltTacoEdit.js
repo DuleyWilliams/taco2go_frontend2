@@ -4,9 +4,9 @@ import { getAllProteins } from "../protein/ProteinManager";
 import { getAllShells } from "../shell/ShellManager";
 import { useHistory, useParams } from "react-router-dom";
 //
-import "./BuiltTacoEdit.css";
 import { getAllToppings } from "../topping/ToppingManager";
 import { getAllSauces } from "../sauce/SauceManager";
+import "./BuiltTacoEdit.css";
 
 export const MyBuiltTacoEdit = () => {
   const [taco, setTaco] = useState({
@@ -163,19 +163,41 @@ export const MyBuiltTacoEdit = () => {
   return (
     <>
       <h1>Edit Taco</h1>
-      <form>
-        <fieldset className="extraform">
-          <div className="">
+  
+        <fieldset className="extraform-edit">
           <h2>Taco Name</h2>
+          <div className="container-cards-name">
             <input
               type="text"
               required
-              className="form-control"
+              className="form-control-edit"
               onChange={handleControlledInputChange}
               id="name"
               value={taco.name}
             />
+            </div>
+           <fieldset className="edit">
+            <h2>Shell</h2>
+            <div className="container-cards-edit">
+            {shells?.map((shell) => (
+              <label htmlFor="shell">
+               <ul>
+                <input
+                  id="shellId"
+                  checked={taco.shellId === shell.id}
+                  onChange={handleControlledInputChange}
+                  type="radio"
+                  value={shell.id}
+                />
+               {shell.type}
+               </ul>
+              </label>
+            ))}
+          </div>
+          </fieldset>
+            <fieldset className="edit">
             <h2>Protein</h2>
+            <div className="container-cards-edit">
             {proteins?.map((protein) => (
               <label htmlFor="protein">
                <ul>
@@ -190,27 +212,15 @@ export const MyBuiltTacoEdit = () => {
               </ul>
               </label>
             ))}
-            <h2>Shell</h2>
-            {shells?.map((shell) => (
-              <label htmlFor="shell">
-                <input
-                  id="shellId"
-                  checked={taco.shellId === shell.id}
-                  onChange={handleControlledInputChange}
-                  type="radio"
-                  value={shell.id}
-                />
-                {shell.type}
-              </label>
-            ))}
           </div>
-
-            <div className="container-cards">
+            </fieldset>
+          <fieldset className="edit">
               <h2>Toppings</h2>
+            <div className="container-cards-edit">
               {toppings.map((topping, index) => {
                 return (
                   <>
-                  <ul>
+                  <label class="edit_label">
                     <input
                       type="checkbox"
                       id={topping.type}
@@ -219,19 +229,22 @@ export const MyBuiltTacoEdit = () => {
                       checked={checkedToppingStates[index]}
                       onChange={() => handleToppingCheckboxChange(index)}
                     />
-                    <label htmlFor={topping.type}>{topping.type}</label>
-                    </ul>
+                    
+                      <ul htmlFor={topping.type}>{topping.type}
+                      </ul>
+                      </label>
                   </>
                 );
               })}
             </div>
-
-          <fieldset>
-            <div className="container-cards">
+          </fieldset>
+          <fieldset className="edit">
               <h2>Sauces</h2>
+            <div className="container-cards-edit">
               {sauces.map((sauce, index) => {
                 return (
                   <>
+                  <label class="edit_label">
                     <input
                       type="checkbox"
                       id={sauce.type}
@@ -239,8 +252,12 @@ export const MyBuiltTacoEdit = () => {
                       name={sauce.type}
                       checked={checkedSauceStates[index]}
                       onChange={() => handleSauceCheckboxChange(index)}
-                    />
-                    <label htmlFor={sauce.type}>{sauce.type}</label>
+                  />
+            
+                    <ul htmlFor={sauce.type}>
+                      {sauce.type}
+                    </ul>
+                    </label>
                   </>
                 );
               })}
@@ -258,7 +275,7 @@ export const MyBuiltTacoEdit = () => {
             </button>
           </div>
         </fieldset>
-      </form>
+
     </>
   );
 };
