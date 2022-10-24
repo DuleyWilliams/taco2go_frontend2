@@ -7,10 +7,10 @@ export const NavBar = () => {
   const history = useHistory()
   return (
       <ul className="navbar">
-          <li className="navbar__image" a href="/">
-                <Link to="/"></Link>
-          </li>
-          <li className="navbar__item">
+          {/* <li className="navbar__image" href="/"> */}
+                <Link to="/" ><li className="navbar__image" href="/"></li></Link>
+          {/* </li> */}
+          <li className="nav-item">
               <Link to="/mybuilttacos"><button>Build A Taco</button></Link>
           </li>
           {/* <li className="navbar__item">
