@@ -42,6 +42,7 @@ export const Register = () => {
                 .then(res => {
                     if ("lu_token" in res) {
                         localStorage.setItem("lu_token", res.lu_token)
+                        localStorage.setItem("currentLover", res.currentLover);
                         history.push("/")
                     }
                 })

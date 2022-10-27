@@ -49,6 +49,8 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
                       return <p>{topping.type}</p>
                     }
                   )}
+                  { parseInt(localStorage.getItem('currentLover')) === taco.tacoLoverId.id &&
+                  <> 
                 <Link to={`/mybuilttacos/edit/${taco.id}`}><button>Edit</button>
                 </Link>
               <Link to={`/`}>
@@ -60,6 +62,7 @@ export const MyBuiltTacoCard = ({ taco, handleDeleteTaco, updateExistingTaco}) =
                   Delete
                 </button>
               </Link>
+            </>}
           </div>
         </div>
       );
